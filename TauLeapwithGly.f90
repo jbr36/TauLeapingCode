@@ -204,7 +204,7 @@ PROGRAM KMC
         TOTOALSUMRATES=TOTOALSUMRATES+SUMRATES(J1)
         ENDDO
 
-        IF (TOTOALSUMRATES.EQ.0.0D0) THEN
+        IF (dabs(TOTOALSUMRATES) < 1.0e-8) THEN
             PRINT '(A)','ERROR *** all rate sums are zero',TOTOALSUMRATES
             STOP
         ENDIF
@@ -3967,22 +3967,22 @@ subroutine vtk_triangles(ntriang,config,colorcoords,data_filename)
     write ( output_unit,* ) 'POINTS ',3*ntriang,' double'
     do k=1,ntriang
 
-        if(colorcoords(k,3).eq.1) then !green
+        if(INT(colorcoords(k,3)).eq.1) then !green
             write ( output_unit,*) colorcoords(k,1)+1, sroot*(colorcoords(k,2)+1), 0.D0 !N
             write ( output_unit,*) colorcoords(k,1), sroot*colorcoords(k,2), 0.D0 !O
             write ( output_unit,*) colorcoords(k,1)+1, sroot*colorcoords(k,2), 0.D0 !O
 
-        elseif(colorcoords(k,3).eq.2) then !red
+        elseif(INT(colorcoords(k,3)).eq.2) then !red
             write ( output_unit,*) colorcoords(k,1), sroot*(colorcoords(k,2)+1), 0.D0 !N
             write ( output_unit,*) colorcoords(k,1), sroot*colorcoords(k,2), 0.D0 !O
             write ( output_unit,*) colorcoords(k,1)+1, sroot*colorcoords(k,2), 0.D0 !O
 
-        elseif(colorcoords(k,3).eq.3) then !yellow
+        elseif(INT(colorcoords(k,3)).eq.3) then !yellow
             write ( output_unit,*) colorcoords(k,1)+1, sroot*colorcoords(k,2), 0.D0 !N
             write ( output_unit,*) colorcoords(k,1), sroot*(colorcoords(k,2)+1), 0.D0 !O
             write ( output_unit,*) colorcoords(k,1)+1, sroot*(colorcoords(k,2)+1), 0.D0 !O
 
-        elseif(colorcoords(k,3).eq.4) then !blue
+        elseif(INT(colorcoords(k,3)).eq.4) then !blue
             write ( output_unit,*) colorcoords(k,1), sroot*colorcoords(k,2), 0.D0 !N
             write ( output_unit,*) colorcoords(k,1), sroot*(colorcoords(k,2)+1), 0.D0 !O
             write ( output_unit,*) colorcoords(k,1)+1, sroot*(colorcoords(k,2)+1), 0.D0 !O
@@ -4071,22 +4071,22 @@ subroutine centreofmasscompare(ntriang,colorcoords,data_filename)
     write ( output_unit,* ) 'POINTS ',3*ntriang,' double'
     do k=1,ntriang
 
-        if(colorcoords(k,3).eq.1) then !green
+        if(INT(colorcoords(k,3)).eq.1) then !green
             write ( output_unit,*) colorcoords(k,1)+1, sroot*(colorcoords(k,2)+1), 0.D0 !N
             write ( output_unit,*) colorcoords(k,1), sroot*colorcoords(k,2), 0.D0 !O
             write ( output_unit,*) colorcoords(k,1)+1, sroot*colorcoords(k,2), 0.D0 !O
 
-        elseif(colorcoords(k,3).eq.2) then !red
+        elseif(INT(colorcoords(k,3)).eq.2) then !red
             write ( output_unit,*) colorcoords(k,1), sroot*(colorcoords(k,2)+1), 0.D0 !N
             write ( output_unit,*) colorcoords(k,1), sroot*colorcoords(k,2), 0.D0 !O
             write ( output_unit,*) colorcoords(k,1)+1, sroot*colorcoords(k,2), 0.D0 !O
 
-        elseif(colorcoords(k,3).eq.3) then !yellow
+        elseif(INT(colorcoords(k,3)).eq.3) then !yellow
             write ( output_unit,*) colorcoords(k,1)+1, sroot*colorcoords(k,2), 0.D0 !N
             write ( output_unit,*) colorcoords(k,1), sroot*(colorcoords(k,2)+1), 0.D0 !O
             write ( output_unit,*) colorcoords(k,1)+1, sroot*(colorcoords(k,2)+1), 0.D0 !O
 
-        elseif(colorcoords(k,3).eq.4) then !blue
+        elseif(INT(colorcoords(k,3)).eq.4) then !blue
             write ( output_unit,*) colorcoords(k,1), sroot*colorcoords(k,2), 0.D0 !N
             write ( output_unit,*) colorcoords(k,1), sroot*(colorcoords(k,2)+1), 0.D0 !O
             write ( output_unit,*) colorcoords(k,1)+1, sroot*(colorcoords(k,2)+1), 0.D0 !O
@@ -4430,16 +4430,16 @@ subroutine read_vtk_triangles(ntriang,config,colorcoords,emat,&
         colorcoords(k,1)=nint(coordsN00xyz(k,2,1))
         config(k,2)=nint(coordsN00xyz(k,1,1))
 
-        if(colorcoords(k,3).eq.1.D0) then !green
+        if(INT(colorcoords(k,3)).eq.1) then !green
             colorcoords(k,2)=nint(coordsN00xyz(k,2,2)/sroot)
              config(k,3)=nint(coordsN00xyz(k,1,2)/sroot)
-        elseif(colorcoords(k,3).eq.2) then !red
+        elseif(INT(colorcoords(k,3)).eq.2) then !red
             colorcoords(k,2)=nint(coordsN00xyz(k,2,2)/sroot)
              config(k,3)=nint(coordsN00xyz(k,1,2)/sroot)
-        elseif(colorcoords(k,3).eq.3) then !yellow
+        elseif(INT(colorcoords(k,3)).eq.3) then !yellow
             colorcoords(k,2)=nint(coordsN00xyz(k,1,2)/sroot)
             config(k,3)=nint(coordsN00xyz(k,1,2)/sroot)
-        elseif(colorcoords(k,3).eq.4) then !blue
+        elseif(INT(colorcoords(k,3)).eq.4) then !blue
             colorcoords(k,2)=nint(coordsN00xyz(k,1,2)/sroot)
             config(k,3)=nint(coordsN00xyz(k,1,2)/sroot)
         else

@@ -2,7 +2,7 @@ ntriangle 16 #ntriangle 50 total number from isl*-size
 posNxy 20 20 
 temp 400  
 hbondstr 0.15 #orig 0.15  
-nkmcsteps 4  #nkmcsteps 250000
+nkmcsteps 1 #4  #nkmcsteps 250000
 printlevel 2
 isl-type1 1      
 isl1-size-xy 4 4     
