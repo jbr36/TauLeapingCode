@@ -1,0 +1,24 @@
+ntriangle 16 #ntriangle 50 total number from isl*-size
+posNxy 20 20 
+temp 400  
+hbondstr 0.15 #orig 0.15  
+nkmcsteps 4  #nkmcsteps 250000
+printlevel 2
+isl-type1 1      
+isl1-size-xy 4 4     
+color-isl1 34  #type=1 color 12 34, type=2 color 1 2 3 4 colors: 1 green, 2 red, 3 yellow, 4 blue
+isl1-pos-xy 10 10 
+isl1-defect-type 0 #0 off, 1 or 2 defects
+isl1-defects-xy 4 6 4 9         
+isl-type2 1
+isl2-size-xy 0 0          
+color-isl2  34  #type=1 color 12 34, type=2 color 1 2 3 4         
+isl2-pos-xy 6 13 
+isl2-defect-type 0 #0 off, 1 or 2 defects
+isl2-defects-xy 9 15 7 14    
+mdefect1-type 1 #1 on, 0 off 
+mdefect1-size-xy 2 2
+mdefect1-pos-xy 5 8
+mdefect2-type 1 #1 on, 0 off 
+mdefect2-size-xy 4 4
+mdefect2-pos-xy 15 15 #restartTrue restart.vtk
