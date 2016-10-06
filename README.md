@@ -4,7 +4,7 @@
 
 [![MIT licensed](https://img.shields.io/github/license/mashape/apistatus.svg)](http://github.com/jbr36/TauLeapingCode/blob/master/license.md)
 
-[![Release version](1.1)](https://github.com/jbr36/TauLeapingCode/releases/tag/1.1)
+[[Release version](1.1)](https://github.com/jbr36/TauLeapingCode/releases/tag/1.1)
 https://doi.org/10.5281/zenodo.159466
 
 Software for sequential multi-scale simultions of the kinetics and dynamics of Glycine molecules on Cu(110). The DFT energies used in the lookup table will be published separately.
