@@ -56,7 +56,7 @@ mdefect1-type and mdefect2-type turn it with 1 on and with 0 off.
 mdefect1-size-xy and mdefect2-size-xy x1 y1 give the number of atoms in x1 and y1 direction which cannot react.
 mdefect1-pos-xy and mdefect2-pos-xy determine the left lower corner of the defective areas on the xy-plane of copper atoms.
 
-All results are written to vtk files which can than visualised in PARAVIEW from http://www.paraview.org/.
+All results are written to vtk files which can then be visualised in PARAVIEW from http://www.paraview.org/.
 The final important feature is the possibility to restart from an input vtk file. 
 
 #### Restart
